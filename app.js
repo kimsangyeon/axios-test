@@ -46,6 +46,19 @@ app.get('/get/cats', (req, res) => {
   }
 });
 
+app.post('/post/cats', (req, res) => {
+  console.log("params: ", req.params);
+  console.log("query: ", req.query);
+  console.log("body: ", req.body);
+  console.log("headers: ", req.headers);
+
+  if (req.body.cats) {
+    res.json({success: true, error: false});
+  } else {
+    res.json({success: false, error: true});
+  }
+});
+
 app.listen(port, (err) => {
   console.log('connect: ', port);
 
